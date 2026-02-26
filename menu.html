@@ -5,13 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Menu Buka Bersama</title>
 
-  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <!-- PhotoSwipe CSS -->
   <link rel="stylesheet" href="https://unpkg.com/photoswipe@5/dist/photoswipe.css">
 
   <style>
@@ -37,7 +34,7 @@
          class="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
     </div>
 
-    <!-- Back Button -->
+    <!-- Back -->
     <div class="text-center mt-12">
       <a href="index.html"
          class="inline-block px-8 py-3 bg-yellow-400 text-black rounded-full hover:bg-yellow-300 transition">
@@ -47,19 +44,19 @@
 
   </div>
 
-  <!-- PhotoSwipe Script -->
   <script type="module">
     import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe@5/dist/photoswipe-lightbox.esm.js';
 
-    const menus = [
-      "1.jpeg","2.jpeg","3.jpeg","4.jpeg","5.jpeg",
-      "6.jpeg","7.jpeg","8.jpeg","9.jpeg","10.jpeg"
-    ];
+    const totalGambar = 10; // 🔥 Ubah sesuai jumlah file kamu
 
     const container = document.getElementById("menuContainer");
 
-    // Load images & detect original size
-    menus.forEach((file) => {
+    for (let i = 1; i <= totalGambar; i++) {
+
+      // 🔥 Format 2 digit (01, 02, 03...)
+      const fileNumber = String(i).padStart(2, '0');
+      const file = `${fileNumber}.jpeg`;
+
       const img = new Image();
       img.src = `img/${file}`;
 
@@ -81,7 +78,7 @@
 
         container.appendChild(item);
       };
-    });
+    }
 
     const lightbox = new PhotoSwipeLightbox({
       gallery: '#menuContainer',
