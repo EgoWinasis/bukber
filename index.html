@@ -57,86 +57,32 @@
 
     </div>
 
-    <!-- BUTTON MENU & LOKASI -->
+    <!-- BUTTONS -->
     <div class="mt-10 space-y-4">
 
+      <!-- Menu -->
       <a href="menu.html"
          class="block px-6 py-3 bg-yellow-400 text-black font-medium rounded-full hover:bg-yellow-300 transition">
         🍽 Lihat Menu
       </a>
 
+      <!-- Maps -->
       <a href="https://maps.app.goo.gl/CJ8fK3oXbNS3ZcEF6"
          target="_blank"
          class="block px-6 py-3 bg-white/20 rounded-full hover:bg-white/30 transition">
         📍 Lihat Lokasi
       </a>
 
-    </div>
-
-    <!-- FORM KONFIRMASI -->
-    <div class="mt-10 bg-white/10 p-6 rounded-2xl border border-white/20 text-left">
-
-      <h2 class="text-lg font-semibold text-yellow-300 mb-4 text-center">
-        Konfirmasi Kehadiran & Pemesanan
-      </h2>
-
-      <input type="text" id="nama"
-        placeholder="Nama Lengkap"
-        class="w-full mb-3 px-4 py-2 rounded-lg text-black">
-
-      <input type="text" id="makanan"
-        placeholder="Pesanan Makanan"
-        class="w-full mb-3 px-4 py-2 rounded-lg text-black">
-
-      <input type="text" id="minuman"
-        placeholder="Pesanan Minuman"
-        class="w-full mb-4 px-4 py-2 rounded-lg text-black">
-
-      <button onclick="kirimWA()"
-        class="w-full px-6 py-3 bg-green-500 rounded-full hover:bg-green-400 transition font-semibold text-white">
-        ✅ Kirim Konfirmasi via WhatsApp
-      </button>
+      <!-- WhatsApp Template -->
+      <a href="https://wa.me/6282314259369?text=Halo,%20saya%20[Nama].%0A%0ASaya%20konfirmasi%20HADIR%20di%20acara%20Buka%20Bersama%206%20Maret%202026.%0A%0APesanan:%0A-%20Makanan:%20[Tulis%20pesanan]%0A-%20Minuman:%20[Tulis%20pesanan]%0A%0ASaya%20akan%20melakukan%20DP%2050%25%20dari%20total%20menu%20yang%20dipesan.%0A%0ATransfer%20ke:%0AANISA%20FAUZIAH%20AFRINA%0A%0ABank%20Mandiri%0A1390028535593%0A%0ABank%20BCA%0A0991146929%0A%0ATerima%20kasih%20🙏"
+         target="_blank"
+         class="block px-6 py-3 bg-green-500 rounded-full hover:bg-green-400 transition">
+        ✅ Konfirmasi Kehadiran
+      </a>
 
     </div>
 
   </div>
-
-  <script>
-    function kirimWA() {
-      const nama = document.getElementById("nama").value;
-      const makanan = document.getElementById("makanan").value;
-      const minuman = document.getElementById("minuman").value;
-
-      if (!nama) {
-        alert("Nama wajib diisi!");
-        return;
-      }
-
-      const pesan = `Halo, saya ${nama}.
-Saya konfirmasi HADIR di acara Buka Bersama 6 Maret 2026.
-
-Pesanan:
-Makanan: ${makanan || "-"}
-Minuman: ${minuman || "-"}
-
-Saya akan melakukan DP 50% dari total pesanan.
-
-Transfer ke:
-ANISA FAUZIAH AFRINA
-
-Bank Mandiri
-1390028535593
-
-Bank BCA
-0991146929
-
-Terima kasih 🙏`;
-
-      const url = "https://wa.me/6282314259369?text=" + encodeURIComponent(pesan);
-
-      window.open(url, "_blank");
-    }
-  </script>
 
 </body>
 </html>
