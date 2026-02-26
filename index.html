@@ -57,6 +57,7 @@
 
     </div>
 
+    <!-- BUTTON MENU & LOKASI -->
     <div class="mt-10 space-y-4">
 
       <a href="menu.html"
@@ -70,15 +71,72 @@
         📍 Lihat Lokasi
       </a>
 
-      <a href="https://wa.me/6282314259369?text=Halo,%20aku%20konfirmasi%20hadir%20di%20acara%20Buka%20Bersama%206%20Maret%202026%20ya!"
-         target="_blank"
-         class="block px-6 py-3 bg-green-500 rounded-full hover:bg-green-400 transition">
-        ✅ Konfirmasi Kehadiran
-      </a>
+    </div>
+
+    <!-- FORM KONFIRMASI -->
+    <div class="mt-10 bg-white/10 p-6 rounded-2xl border border-white/20 text-left">
+
+      <h2 class="text-lg font-semibold text-yellow-300 mb-4 text-center">
+        Konfirmasi Kehadiran & Pemesanan
+      </h2>
+
+      <input type="text" id="nama"
+        placeholder="Nama Lengkap"
+        class="w-full mb-3 px-4 py-2 rounded-lg text-black">
+
+      <input type="text" id="makanan"
+        placeholder="Pesanan Makanan"
+        class="w-full mb-3 px-4 py-2 rounded-lg text-black">
+
+      <input type="text" id="minuman"
+        placeholder="Pesanan Minuman"
+        class="w-full mb-4 px-4 py-2 rounded-lg text-black">
+
+      <button onclick="kirimWA()"
+        class="w-full px-6 py-3 bg-green-500 rounded-full hover:bg-green-400 transition font-semibold text-white">
+        ✅ Kirim Konfirmasi via WhatsApp
+      </button>
 
     </div>
 
   </div>
+
+  <script>
+    function kirimWA() {
+      const nama = document.getElementById("nama").value;
+      const makanan = document.getElementById("makanan").value;
+      const minuman = document.getElementById("minuman").value;
+
+      if (!nama) {
+        alert("Nama wajib diisi!");
+        return;
+      }
+
+      const pesan = `Halo, saya ${nama}.
+Saya konfirmasi HADIR di acara Buka Bersama 6 Maret 2026.
+
+Pesanan:
+Makanan: ${makanan || "-"}
+Minuman: ${minuman || "-"}
+
+Saya akan melakukan DP 50% dari total pesanan.
+
+Transfer ke:
+ANISA FAUZIAH AFRINA
+
+Bank Mandiri
+1390028535593
+
+Bank BCA
+0991146929
+
+Terima kasih 🙏`;
+
+      const url = "https://wa.me/6282314259369?text=" + encodeURIComponent(pesan);
+
+      window.open(url, "_blank");
+    }
+  </script>
 
 </body>
 </html>
